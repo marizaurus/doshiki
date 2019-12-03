@@ -1,0 +1,31 @@
+// app global css in SCSS form
+
+@font-face {
+  font-family: mRat;
+  src: url("../css/fonts/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: mRatBold;
+  src: url("../css/fonts/Montserrat-Bold.ttf");
+}
+@font-face {
+  font-family: mRatAlt;
+  src: url("../css/fonts/MontserratAlternates-Regular.ttf");
+}
+@font-face {
+  font-family: mRatAltBold;
+  src: url("../css/fonts/MontserratAlternates-Bold.ttf");
+}
+
+.mRat {
+  font-family: 'mRat', sans-serif;
+}
+.mRatBold {
+  font-family: 'mRatBold', sans-serif;
+}
+.mRatAlt {
+  font-family: 'mRatAlt', sans-serif;
+}
+.mRatAltBold {
+  font-family: 'mRatAltBold', sans-serif;
+}
