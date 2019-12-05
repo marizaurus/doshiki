@@ -1,0 +1,84 @@
+<template>
+  <div class="q-py-xl row q-mb-xl">
+    <div class="text-deep-orange-13 text-h4 mRatBold offset-1 col-11 q-mb-xl">Рецепты с дошиками, дошики в рецептах</div>
+    <div class="col-6 offset-1 q-mb-xl row q-col-gutter-x-xl">
+      <div class="col-6">
+        <q-btn no-caps flat
+               class="full-width mRatAltBold text-h5 switchBtn"
+               to="/cookbook/articles"
+               @click="chooseArts"
+               style="border: 3px solid #FF894C"
+               v-bind:style="this.articlesChosen? 'background-color: #FF894C; color: white': 'color: #FF894C'"
+               label="Назад к статьям"/>
+      </div>
+    </div>
+    <div class="offset-1 col-10 column q-my-xl">
+      <div class="q-mb-xl text-h5 mRatAltBold">Доширак-вок с курицей</div>
+      <div class="row q-mb-xl">
+        <div class="col-6 q-pr-xl">
+          <img src="../statics/img/noodles.png" alt="" width="100%" style="max-width: 654px">
+        </div>
+        <div class="col-6 column text-grey-19 q-pl-md justify-between">
+          <div>
+            <span class="text-h5 mRatBold">Ингредиенты:</span>
+            <ul style="padding: 0; margin: 0">
+              <li v-for="ingr in this.ingredients" v-bind:ingr="ingr" :key="ingr" class="text-h5 mRat">{{ingr}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="mRatBold text-deep-orange-13 text-h4 q-my-xl">Как приготовить?</div>
+      <q-timeline color="deep-orange-13">
+        <q-timeline-entry title="Подготовка" class="mRatBold">
+          <div class="mRat text-h6">Предварительно разогрейте сковороду и отварите куриное филе (не забудьте посолить!)</div>
+          <div class="mRat text-h6">Лапшу переложите в крупную миску, залейте кипятком на 3 минуты.</div>
+        </q-timeline-entry>
+        <q-timeline-entry title="Приготовление" class="mRatBold">
+          <div class="mRat text-h6">Мелко нарежьте лук и тушите на медленном огне 3 минуты.</div>
+          <div class="mRat text-h6">Добавьте к луку томат черри (разрезанный пополам).</div>
+          <div class="mRat text-h6">Куриное филе порежьте кубиком 3—4 см.</div>
+          <div class="mRat text-h6">Вылейте на разогретую сковороду с луком и томатом 20 мл коньяка, дайте ему испариться 3—5 секунд.</div>
+          <div class="mRat text-h6">Самое время выложить на сковороду куриное филе, тушим 3—5 минут и добавляем лапшу.</div>
+          <div class="mRat text-h6">Тушим всё вместе 5 минут, медленно помешивая наше блюдо.</div>
+        </q-timeline-entry>
+        <q-timeline-entry title="Завершение и подача" class="mRatBold">
+          <div class="mRat text-h6">В конце добавляем сливки.</div>
+          <div class="mRat text-h6">Вместе со сливками накрываем блюдо крышкой, ставим самый слабый огонь и даём ему спокойно потомиться в собственном соку.</div>
+        </q-timeline-entry>
+      </q-timeline>
+      <div class="mRatBold text-h4 text-deep-orange-13 q-mb-xl">Дошики для рецепта</div>
+      <div class="row q-gutter-x-xl">
+        <product-card v-for="n in 5" :key="n"/>
+        <div class="q-mt-xl">
+          <img src="../statics/img/trRight.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+
+import productCard from '../components/ProductCard'
+
+export default {
+  name: 'recipeCard',
+  components: {
+    productCard
+  },
+  data () {
+    return {
+      ingredients: [
+        'Лапша "Доширак", 2 шт',
+        'Куриное филе, 250 гр',
+        'Луковица крупная, 1 шт',
+        'Томаты черри, 8 шт',
+        'Зелёный лук',
+        'Сливки 10%, 50 мл',
+        'Коньяк, 20 мл',
+        'Соль/перец и прочие специи'
+      ]
+    }
+  }
+}
+</script>

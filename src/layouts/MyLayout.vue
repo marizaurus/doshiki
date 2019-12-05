@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh lpr fff" class="m">
+  <q-layout view="hHh lpr fff" class="m bg-deep-orange-2">
 
     <q-header class="bg-deep-orange-13 text-white q-pa-none">
       <q-toolbar class="row">
@@ -7,37 +7,52 @@
           <q-btn flat no-caps label="Doshiki" to="/" class="mRatAltBold logoBtn text-h6"/>
         </div>
         <div class="col-7 row justify-around q-pa-lg mRat">
-          <div class="shipping column">
+          <div class="column">
+            <div class="mRatBold">Лапша быстрого приготовления</div>
+            <div>со всего мира</div>
+          </div>
+          <div class="column">
             <div class="mRatBold">Бесплатная доставка</div>
             <div>по всей России</div>
           </div>
-          <div class="address column">
-            <div class="mRatBold">Адрес магазина</div>
-            <div>Спб, пр. Большевиков 22</div>
-          </div>
-          <div class="workTime column">
-            <div class="mRatBold">Время работы</div>
-            <div>9.00-23.00</div>
-          </div>
         </div>
-        <div class="col-3 row justify-around mRatBold items-center">
+        <div class="col-3 row justify-around mRatBold items-center q-pa-none">
+          <div class="column">
+            <div>+7 (800) 555-36-35</div>
+            <div class="mRat text-body2" style="text-decoration: underline">Заказать звонок</div>
+          </div>
           <div class="row items-center">
             <q-icon name="shopping_cart" class="text-h4"/>
             <div>1</div>
           </div>
-          <div>+7 (800) 555-36-35</div>
           <q-icon name="search" class="text-h4"/>
         </div>
       </q-toolbar>
       <q-toolbar class="bg-deep-orange-12">
-        <q-btn-group flat spread class="offset-2 col-8 mRatBold text-body-2">
+        <q-btn-group flat spread class="offset-1 col-8 mRatBold text-body2">
           <q-btn no-caps label="Главная" to="/" class=" q-pa-sm"/>
           <q-btn no-caps label="Каталог" to="/product" class="q-pa-sm"/>
           <q-btn no-caps label="Акции" to="/" class="q-pa-sm"/>
           <q-btn no-caps label="Избранные товары" to="/" class="q-pa-sm"/>
-          <q-btn no-caps label="Рецепты" to="/cookbook/articles" class="q-pa-sm"/>
+          <q-btn no-caps label="Рецепты" class="q-pa-sm">
+            <q-menu fit>
+              <q-list style="min-width: 100px">
+                <q-item clickable to="/cookbook/articles" class="bg-deep-orange-13">
+                  <q-item-section class="mRatBold text-white text-caption text-center">Статьи</q-item-section>
+                </q-item>
+                <q-item clickable to="/cookbook/videos"  class="bg-deep-orange-13">
+                  <q-item-section class="mRatBold text-white text-caption text-center">Видеорецепты</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </q-btn>
           <q-btn no-caps label="Доставка и оплата" to="/shipping" class="q-pa-sm "/>
         </q-btn-group>
+        <div class="offset-1 col-2 row text-white mRatBold text-body2 items-center justify-evenly">
+          <q-icon name="person_outline" class="text-h4"/>
+          <div>Войти</div>
+          <div>Регистрация</div>
+        </div>
       </q-toolbar>
     </q-header>
 

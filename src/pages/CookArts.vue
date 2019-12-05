@@ -1,17 +1,17 @@
 <template>
   <div>
-    <recipe/>
-    <recipe/>
+    <recipe-card/>
+    <recipe-card/>
   </div>
 </template>
 
 <script>
 
-import recipe from '../components/Recipe'
+import recipeCard from '../components/RecipeCard'
 
 export default {
   components: {
-    recipe
+    recipeCard
   },
   data () {
     return {

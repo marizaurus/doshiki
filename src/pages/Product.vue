@@ -3,7 +3,7 @@
     <div class="col-10 offset-1 column">
       <q-breadcrumbs class="text-grey-8 q-pb-xl mRat" active-color="text-grey-8">
         <template v-slot:separator>
-          <q-icon size="1.5em" name="chevron_right" color="text-grey-8"/>
+          <q-icon size="0.7em" name="fiber_manual_record" class="text-deep-orange-13"/>
         </template>
         <q-breadcrumbs-el label="Лапша быстрого приготовления"/>
         <q-breadcrumbs-el label="Тайланд"/>
@@ -19,14 +19,20 @@
         </div>
         <div class="col-7 column justify-around">
           <div class="row justify-between">
-            <div class="column q-gutter-y-sm">
-              <div class="text-body-2 text-deep-orange-13 mRat">Товар есть в наличии</div>
-              <div class="text-body-2 text-grey-10 mRat">Товар есть в наличии</div>
-              <div class="text-body-2 text-grey-10 mRat">Производитель: Тайланд</div>
-              <div class="text-body-2 text-grey-10 mRat">Комплектация: Контейнер</div>
-              <div class="text-body-2 text-grey-10 mRat">Производитель: Тайланд</div>
-              <div class="text-body-2 text-grey-10 mRat">Вес: 135г</div>
-              <div class="text-body-2 text-grey-10 mRat">Код товара: 599</div>
+            <div class="column q-gutter-y-sm text-grey-10 mRat text-body-2">
+              <div class="row items-center">
+                <q-rating readonly v-model="ratingModel" size="1.8em" color="deep-orange-13"
+                          icon="star_border" icon-selected="star" class="q-mr-sm"/>
+                <div class="mRatBold text-body2 text-deep-orange-13">4,1</div>
+              </div>
+
+              <div class="text-deep-orange-13">Товар есть в наличии</div>
+              <div>Товар есть в наличии</div>
+              <div>Производитель: Тайланд</div>
+              <div>Комплектация: Контейнер</div>
+              <div>Производитель: Тайланд</div>
+              <div>Вес: 135г</div>
+              <div>Код товара: 599</div>
             </div>
             <div class="column items-center justify-center">
               <div class="row q-mb-sm justify-around full-width">
@@ -34,7 +40,7 @@
                   <div class="newPrice text-deep-orange-13 mRatAltBold text-h5">125 р.</div>
                   <div class="prevPrice mRatAltBold text-body1 text-grey-7" style="text-decoration: line-through">148 р.</div>
                 </div>
-                <q-icon class="text-h4 text-deep-orange-13 text-bold" name="favorite_border"/>
+                <q-icon class="text-h4 text-deep-orange-13" name="favorite_border"/>
               </div>
               <q-btn flat no-caps class="bg-deep-orange-13 text-white mRatAltBold text-h5 q-px-xl q-mb-md" label="В корзину"/>
               <div class="text-body-2 text-grey-10 mRatBold" style="text-decoration: underline">Заказать в 1 клик</div>
@@ -77,14 +83,7 @@
       <div class="column q-my-xl">
         <div class="mRatBold text-h5 text-grey-10 q-mb-xl">Просмотренные товары</div>
         <div class="row q-gutter-x-xl">
-          <div v-for="n in 5" :key="n" class="column justify-center" style="width: 196px">
-            <div class="q-mb-md" style="border: 3px solid #FF894C; border-radius: 5px; height: 196px;"></div>
-            <div class="text-body2 mRatBold text-grey-10 q-mb-sm text-center">Рисовая лапша под соусом пад тай 135гр.</div>
-            <div class="row justify-evenly items-center">
-              <div class="mRatAltBold text-deep-orange-13 text-body1">Цена: 125 р.</div>
-              <q-btn flat dense icon="add_shopping_cart" class="bg-deep-orange-13 text-white q-pa-xs"/>
-            </div>
-          </div>
+          <product-card v-for="n in 5" :key="n"/>
           <div class="q-mt-xl">
             <img src="../statics/img/trRight.png" alt="">
           </div>
@@ -93,3 +92,20 @@
     </div>
   </div>
 </template>
+
+<script>
+
+import productCard from '../components/ProductCard'
+
+export default {
+  data () {
+    return {
+      ratingModel: 4
+    }
+  },
+  components: {
+    productCard
+  }
+}
+
+</script>

@@ -3,7 +3,7 @@
     <div class="q-mb-xl text-h5 mRatAltBold">Доширак-вок с курицей</div>
     <div class="row">
       <div class="col-6 q-pr-xl">
-        <img src="../statics/img/noodles.png" alt="" width="100%">
+        <img src="../statics/img/noodles.png" alt="" width="100%" style="max-width: 654px">
       </div>
       <div class="col-6 column text-grey-19 q-pl-md justify-between">
         <div>
@@ -14,7 +14,8 @@
         </div>
         <q-btn flat no-caps label="Подробнее"
                class="bg-deep-orange-13 text-white q-px-xl q-py-sm text-h5 mRatAltBold q-mb-md"
-               style="width: min-content"/>
+               style="width: min-content"
+               to='/cookbook/articles/artNum'/>
       </div>
     </div>
   </div>
@@ -22,7 +23,7 @@
 
 <script>
 export default {
-  name: 'recipe',
+  name: 'recipeCard',
   data () {
     return {
       ingredients: [

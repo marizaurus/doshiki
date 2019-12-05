@@ -21,9 +21,19 @@ const routes = [
         path: '/cookbook',
         component: () => import('../pages/CookBook.vue'),
         children: [
-          { path: '/cookbook/articles', component: () => import('../pages/CookArts.vue') },
-          { path: '/cookbook/videos', component: () => import('../pages/CookVids.vue') }
+          {
+            path: '/cookbook/articles',
+            component: () => import('../pages/CookArts.vue')
+          },
+          {
+            path: '/cookbook/videos',
+            component: () => import('../pages/CookVids.vue')
+          }
         ]
+      },
+      {
+        path: '/cookbook/articles/artNum',
+        component: () => import('../pages/Recipe.vue')
       }
     ]
   }
