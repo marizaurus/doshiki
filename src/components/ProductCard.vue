@@ -10,13 +10,35 @@
       <div class="row items-center justify-center" style="border-radius: 6px; border: 2px solid #FD7014">
         <q-btn dense flat class="bg-deep-orange-13 text-white text-caption"
                style="border-radius: 0; width: 25px; height: 25px;"
-               icon="remove" :ripple="false"/>
-        <div class="mRat text-caption q-px-md">1</div>
+               icon="remove" :ripple="false" @click="removeItem(count)"/>
+        <div class="mRat text-caption q-px-md">{{count}}</div>
         <q-btn dense flat class="bg-deep-orange-13 text-white text-caption"
                style="border-radius: 0; width: 25px; height: 25px;"
-               icon="add" :ripple="false"/>
+               icon="add" :ripple="false" @click="addItem"/>
       </div>
       <q-btn flat dense icon="add_shopping_cart" class="bg-deep-orange-13 text-white q-pa-xs"/>
     </div>
   </div>
 </template>
+
+<script>
+
+export default {
+  data () {
+    return {
+      count: 1
+    }
+  },
+  methods: {
+    addItem () {
+      this.count++
+    },
+    removeItem (count1) {
+      if (count1-- > 1) {
+        this.count--
+      }
+    }
+  }
+}
+
+</script>

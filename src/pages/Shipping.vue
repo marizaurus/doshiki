@@ -35,9 +35,9 @@
       <img src="../statics/img/adNoodle.png" alt="" class="col-3">
       <div class="column col-6 justify-center items-center text-center q-gutter-y-lg">
         <div class="mRatAltBold text-h3 text-white">Рассылка с новинками и акциями интернет-магазина Doshiki</div>
-        <q-input rounded standout="bg-deep-orange-1 text-info" v-model="text" label="Email"
+        <q-input rounded outlined v-model="text" label="Email"
                  bg-color="deep-orange-1"
-                 class="mRat text-grey-9 text-h5"/>
+                 class="mRat text-h5"/>
         <q-btn no-caps rounded class="bg-light-green-14 mRatBold text-white text-h5 q-px-xl" label="Подписаться"
                style="width: fit-content"/>
       </div>
