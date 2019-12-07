@@ -67,5 +67,40 @@
         </q-menu>
       </q-btn>
     </q-page-sticky>
+
+    <q-list class="col-xs-12 col-sm-8">
+      <q-separator spaced/>
+      <q-item class="text-h5 text-grey-9 mRatBold customer">
+        <q-item-section thumbnail class="sectionChip">
+          <q-chip color="deep-orange-13" text-color="white" size="lg">Новый</q-chip>
+        </q-item-section>
+        <q-item-section>
+          <div>Заказ №60</div>
+        </q-item-section>
+        <q-item-section>
+          <div class="mRat">покупатель: <span class="text-deep-orange-12">Арина</span></div>
+        </q-item-section>
+        <q-item-section side>
+          <div class="text-grey-9">750 ₽</div>
+        </q-item-section>
+      </q-item>
+      <q-separator spaced/>
+      <q-item class="text-h5 text-grey-9 mRatBold customer">
+        <q-item-section thumbnail class="sectionChip">
+          <q-chip color="indigo-10" text-color="white" size="lg">Звонок</q-chip>
+        </q-item-section>
+        <q-item-section>
+          <div>Заказ №61</div>
+        </q-item-section>
+        <q-item-section>
+          <div class="mRat">покупатель: <span class="text-deep-orange-12">Дарья</span></div>
+        </q-item-section>
+        <q-item-section side>
+          <div class="text-grey-9">1750 ₽</div>
+        </q-item-section>
+      </q-item>
+      <q-separator spaced/>
+    </q-list>
+
   </div>
 </template>

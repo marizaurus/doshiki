@@ -4,6 +4,9 @@ const routes = [
     path: '/',
     component: () => import('../layouts/MyLayout.vue'),
     children: [
+      { path: '/adminPanel', component: () => import('../pages/admin/AdminMain.vue') },
+      { path: '/adminPanel/orders', component: () => import('../pages/admin/AdminOrders.vue') },
+      { path: '/adminPanel/products', component: () => import('../pages/admin/AdminProducts.vue') },
       { path: '/', component: () => import('../pages/Home.vue') },
       { path: '/cart', component: () => import('../pages/Cart.vue') },
       { path: '/catalogue', component: () => import('../pages/Catalogue.vue') },
@@ -19,21 +22,21 @@ const routes = [
       { path: '/product', component: () => import('../pages/Product.vue') },
       {
         path: '/cookbook',
-        component: () => import('../pages/CookBook.vue'),
+        component: () => import('../pages/recipies/CookBook.vue'),
         children: [
           {
             path: '/cookbook/articles',
-            component: () => import('../pages/CookArts.vue')
+            component: () => import('../pages/recipies/CookArts.vue')
           },
           {
             path: '/cookbook/videos',
-            component: () => import('../pages/CookVids.vue')
+            component: () => import('../pages/recipies/CookVids.vue')
           }
         ]
       },
       {
         path: '/cookbook/articles/artNum',
-        component: () => import('../pages/Recipe.vue')
+        component: () => import('../pages/recipies/Recipe.vue')
       }
     ]
   }

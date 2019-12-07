@@ -1,7 +1,7 @@
 <template>
-  <div class="q-pt-xl row">
+  <div class="q-pt-xs-md q-pt-sm-xl row">
     <div class="col-10 offset-1 column text-h5 mRat text-grey-10">
-      <div class="text-deep-orange-13 text-h4 mRatBold q-mt-xl">Доставка и оплата</div>
+      <div class="text-deep-orange-13 text-h4 mRatBold q-mt-xs-md q-mt-sm-xl titleBig">Доставка и оплата</div>
       <div class="q-my-xl">Официальный интернет-магазин Doshiki осуществляет бесплатную доставку по всей России.<br><br>
         Минимальная сумма заказа для бесплатной доставки в пределах Санкт-Петербурга - 200р.<br>По всей России - 400р.<br>
         В остальных случаях - цена согласно службы выбранной вами курьерской службы</div>

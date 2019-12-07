@@ -1,7 +1,8 @@
 <template>
   <div class="column justify-center" style="width: 196px">
     <div class="q-mb-md row" style="border: 3px solid #FF894C; border-radius: 5px; height: 196px">
-      <q-icon class="text-h4 text-deep-orange-13 q-ml-auto" name="favorite_border"/>
+      <q-icon class="text-h4 text-deep-orange-13 q-ml-auto cursor-pointer"
+              :name="isFav ? 'favorite' : 'favorite_border'" @click="isFav = !isFav"/>
     </div>
     <div class="text-body2 mRatBold text-grey-10">Рисовая лапша под соусом пад тай 135гр.</div>
     <div class="text-caption mRat text-deep-orange-13 q-mb-sm">Есть в наличии</div>
@@ -26,7 +27,8 @@
 export default {
   data () {
     return {
-      count: 1
+      count: 1,
+      isFav: false
     }
   },
   methods: {

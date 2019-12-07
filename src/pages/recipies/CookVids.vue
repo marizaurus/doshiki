@@ -1,13 +1,12 @@
 <template>
   <div>
     <recipe-card/>
-    <recipe-card/>
   </div>
 </template>
 
 <script>
 
-import recipeCard from '../components/RecipeCard'
+import recipeCard from '../../components/RecipeCard'
 
 export default {
   components: {
