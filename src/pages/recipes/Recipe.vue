@@ -1,19 +1,26 @@
 <template>
   <div class="q-py-sm-xl q-py-xs-lg row q-mb-sm-xl q-mb-xs-md">
+    <q-breadcrumbs class="text-grey-8 mRat offset-1 col-11 q-mb-sm-xl q-mb-xs-lg" active-color="text-grey-8">
+      <template v-slot:separator>
+        <q-icon size="0.7em" name="fiber_manual_record" class="text-deep-orange-13"/>
+      </template>
+      <q-breadcrumbs-el label="Главная" to="/"/>
+      <q-breadcrumbs-el label="Рецепты" to="/cookbook/articles"/>
+      <q-breadcrumbs-el label="Рецепты в статьях" to="/cookbook/articles"/>
+      <q-breadcrumbs-el label="Доширак-вок с курицей"/>
+    </q-breadcrumbs>
     <div class="text-deep-orange-13 text-h4 mRatBold offset-1 col-11 q-mb-sm-xl q-mb-xs-lg titleBig">Рецепты с дошиками, дошики в рецептах</div>
     <div class="col-sm-6 col-xs-12 offset-sm-1 q-mb-sm-xl q-mb-xs-md row q-col-gutter-x-xl">
-      <div class="col-sm-6 col-xs-12 offset-xs-1">
+      <div class="col-sm-6 col-xs-11 offset-xs-1">
         <q-btn no-caps flat
                class="full-width mRatAltBold text-h5 switchBtn"
                to="/cookbook/articles"
-               @click="chooseArts"
                style="border: 3px solid #FF894C"
-               v-bind:style="this.articlesChosen? 'background-color: #FF894C; color: white': 'color: #FF894C'"
                label="Назад к статьям"/>
       </div>
     </div>
     <div class="offset-1 col-10 column q-my-sm-xl q-my-xs-md">
-      <div class="q-mb-sm-xl q-mb-xs-lg text-h5 mRatAltBold">Доширак-вок с курицей</div>
+      <div class="q-mb-sm-xl q-mb-xs-lg text-h5 mRatAltBold">{{ recipe.title }}</div>
       <div class="row q-mb-sm-xl q-mb-xs-md">
         <div class="col-sm-6 col-xs-12 q-pr-sm-xl q-mb-xs-md">
           <img src="../../statics/img/noodles.png" alt="" width="100%" style="max-width: 654px">
@@ -22,7 +29,7 @@
           <div>
             <span class="text-h5 mRatBold">Ингредиенты:</span>
             <ul style="padding: 0; margin: 0">
-              <li v-for="ingr in this.ingredients" v-bind:ingr="ingr" :key="ingr" class="text-h5 mRat">{{ingr}}</li>
+              <li v-for="ingr in recipe.ingredients.split('—')" v-bind:ingr="ingr" :key="ingr" class="text-h5 mRat">{{ingr}}</li>
             </ul>
           </div>
         </div>
@@ -48,10 +55,7 @@
       </q-timeline>
       <div class="mRatBold text-h4 text-deep-orange-13 q-mb-sm-xl q-mb-xs-md">Дошики для рецепта</div>
       <div class="row q-gutter-sm-x-xl justify-xs-center">
-        <product-card v-for="n in 5" :key="n" class="q-mb-xs-md col-xs-12"/>
-<!--        <div class="q-mt-xl">-->
-<!--          <img src="../statics/img/trRight.png" alt="">-->
-<!--        </div>-->
+        <product-card v-for="product in this.products.slice(5, 9)" :key="product.id" v-bind:product="product" :isNew="false" class="q-mb-xs-md col-xs-12"/>
       </div>
     </div>
   </div>
@@ -60,34 +64,44 @@
 <script>
 
 import productCard from '../../components/ProductCard'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'recipeCard',
+  recipe: null,
+  steps: null,
   components: {
     productCard
   },
+  beforeMount () {
+    this.recipe = this.$store.getters['recipe/recipes'].find(recipe => recipe.id === this.$route.params.id)
+    this.steps = this.$store.getters['step/steps'].find(steps => steps.id === this.$route.params.id)
+  },
   data () {
     return {
-      ingredients: [
-        'Лапша "Доширак", 2 шт',
-        'Куриное филе, 250 гр',
-        'Луковица крупная, 1 шт',
-        'Томаты черри, 8 шт',
-        'Зелёный лук',
-        'Сливки 10%, 50 мл',
-        'Коньяк, 20 мл',
-        'Соль/перец и прочие специи'
-      ]
     }
+  },
+  mounted () {
+    this.getProducts()
+  },
+  methods: {
+    ...mapActions({
+      getProducts: 'product/getProducts'
+    })
+  },
+  computed: {
+    ...mapGetters({
+      products: 'product/products'
+    })
   }
 }
 </script>
 
 <style lang="scss">
   .titleBig{
-  @media (max-width: $breakpoint-xs-max) {
-    font-size: 26px;
-    line-height: 32px;
-  }
+    @media (max-width: $breakpoint-xs-max) {
+      font-size: 26px;
+      line-height: 32px;
+    }
   }
 </style>
